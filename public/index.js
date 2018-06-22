@@ -41,6 +41,23 @@ $(document).on("click", ".submitBtn", function() {
   // console.log("Here's the article id: ", thisId)
   // console.log($("#new-note-"+thisId).val());
 
+  $.ajax({
+    method: "POST",
+    url: "/articles/" + thisId,
+    data: {
+      body: $("#new-note-"+thisId).val()
+    }
+  }).then(function(data) {
+    console.log(data);
+  })
+});
+
+//When someone clicks submitBtn to add a note
+$(document).on("click", ".submitBtn", function() {
+  var thisId = $(this).attr("data-btn-id");
+  // console.log("Submit button clicked");
+  // console.log("Here's the article id: ", thisId)
+  // console.log($("#new-note-"+thisId).val());
 
   $.ajax({
     method: "POST",
@@ -51,4 +68,4 @@ $(document).on("click", ".submitBtn", function() {
   }).then(function(data) {
     console.log(data);
   })
-})
+});
