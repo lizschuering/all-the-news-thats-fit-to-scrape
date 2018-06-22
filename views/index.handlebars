@@ -1,0 +1,43 @@
+<div>
+    <h2 class="center-align">All the News That's Fit To <del>Print</del> Scrape!</h2>
+    <h5 class="center-align"><a href="https://news.ycombinator.com/">(from Hacker News)</a></h4>
+    <br>
+    <div class="center-btn">
+        <button class="center-align deep-orange btn" id="scrapeBtn"><i class="material-icons right">archive</i>Get Me Some News!</button>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="card-panel">
+        <ul class="collapsible">
+            {{#each articles}}
+            <li data-id="{{_id}}">
+            <div class="collapsible-header"><i class="material-icons">info_outline</i>{{title}}</div>
+            <div class="collapsible-body">
+                <h5 class="center-align"><a href="{{link}}" target="_blank">{{link}}</a></h5>
+                <br>
+                <div class="row">
+                    <div class="col s6">
+                        <p>Add a Note About This Article</p>
+                        <form action="">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="Your note here..." type="text" class="validate" id="new-note-{{_id}}" required>
+                                </div>
+                            </div>
+                            <button class="deep-orange darken-1 btn submitBtn" type="submit" data-btn-id="{{_id}}"><i class="material-icons right">add_box</i>Add a note</button>
+                        </form>
+                    </div>
+                    <div class="col s6">
+                        <h5>Notes About this Article</h4>
+                        <div class="notes" id="notes-{{_id}}"></div>
+                    </div>
+                </div>
+            </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
